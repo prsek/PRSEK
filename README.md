@@ -143,7 +143,7 @@ We welcome contributions to PRSEK! If you'd like to contribute, please follow th
 
 - Submit a pull request with a detailed description of your changes.
 
-#**Support**
+# **Support**
 If you encounter any issues or have questions, please:
 
 Open an issue on GitHub.
@@ -153,7 +153,7 @@ Join our Discord server for community support.
 # License
 PRSEK is licensed under the MIT License. See the LICENSE file for details.
 
-# Acknowledgements#
+# Acknowledgements
 
 - TwitchIO - For the Twitch API interaction library.
 
