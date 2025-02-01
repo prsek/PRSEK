@@ -28,8 +28,10 @@ Twitch Developer credentials (Client ID and Client Secret)
 ```bash
 git clone https://github.com/yourusername/PRSEK.git
 cd PRSEK
-Install Dependencies:
 ```
+
+**Install Dependencies:**
+
 ```bash
 pip install -r requirements.txt
 ```
