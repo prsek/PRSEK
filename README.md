@@ -1,6 +1,6 @@
-PRSEK is a custom-built Twitch bot designed to seamlessly interface with the Songify Windows application, enabling real-time song requests and playback control directly from a Twitch chat. This bot enhances viewer engagement by allowing your audience to influence the music played during your live streams.
+**PRSEK is a custom-built Twitch bot designed to seamlessly interface with the Songify Windows application, enabling real-time song requests and playback control directly from a Twitch chat. This bot enhances viewer engagement by allowing your audience to influence the music played during your live streams.**
 
-Features
+**Features**
 Song Requests: Viewers can request songs using chat commands.
 
 Queue Management: Maintains a queue of requested songs and plays them in order.
@@ -13,29 +13,28 @@ Customizable Commands: Configure command prefixes, cooldowns, and permissions.
 
 Error Handling: Robust error handling and logging for troubleshooting.
 
-Installation
+**Installation**
 Prerequisites
 Python 3.8 or higher
-
-A Twitch account with a registered bot account
 
 The Songify Windows application installed and running
 
 Twitch Developer credentials (Client ID and Client Secret)
 
-Steps
-Clone the Repository:
+**Steps**
+
+**1.) Clone the Repository:**
 
 ```bash
-Copy
 git clone https://github.com/yourusername/PRSEK.git
 cd PRSEK
 Install Dependencies:
-
+```
 ```bash
-Copy
 pip install -r requirements.txt
-Configure the Bot:
+```
+
+**Configure the Bot:**
 
 Rename config.example.json to config.json.
 
@@ -53,15 +52,16 @@ Fill in the required fields:
   "max_queue_length": 10,
   "request_cooldown": 30
 }
+```
 
-```Run the Bot:
+**Run the Bot:**
 
 ```bash
-Copy
 python prsek.py
 Usage
 Viewer Commands
 !songrequest <song_name> or !sr <song_name> - Request a song.
+```
 
 !queue or !q - View the current song queue.
 
