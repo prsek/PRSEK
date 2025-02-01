@@ -1,6 +1,6 @@
-**PRSEK is a custom-built Twitch bot designed to seamlessly interface with the Songify Windows application, enabling real-time song requests and playback control directly from a Twitch chat. This bot enhances viewer engagement by allowing your audience to influence the music played during your live streams.**
+##PRSEK is a custom-built Twitch bot designed to seamlessly interface with the Songify Windows application, enabling real-time song requests and playback control directly from a Twitch chat. This bot enhances viewer engagement by allowing your audience to influence the music played during your live streams.##
 
-**Features**
+#**Features**#
 Song Requests: Viewers can request songs using chat commands.
 
 Queue Management: Maintains a queue of requested songs and plays them in order.
@@ -13,7 +13,7 @@ Customizable Commands: Configure command prefixes, cooldowns, and permissions.
 
 Error Handling: Robust error handling and logging for troubleshooting.
 
-**Installation**
+#**Installation**#
 Prerequisites
 Python 3.8 or higher
 
@@ -21,7 +21,7 @@ The Songify Windows application installed and running
 
 Twitch Developer credentials (Client ID and Client Secret)
 
-**Steps**
+#**Steps**#
 
 **1.) Clone the Repository:**
 
@@ -56,7 +56,7 @@ Fill in the required fields:
 }
 ```
 
-**Run the Bot:**
+#**Run the Bot:**#
 
 ```bash
 python prsek.py
@@ -64,6 +64,7 @@ Usage
 Viewer Commands
 !songrequest <song_name> or !sr <song_name> - Request a song.
 ```
+#**User Commands**#
 
 !queue or !q - View the current song queue.
 
@@ -75,7 +76,8 @@ Viewer Commands
 
 !help - List available commands.
 
-Streamer/Moderator Commands
+#**Streamer/Moderator Commands**#
+
 !addsong <song_name> - Manually add a song to the queue.
 
 !skipsong - Skip the current song.
@@ -106,7 +108,8 @@ Streamer/Moderator Commands
 
 !reloadconfig - Reload the bot's configuration.
 
-Admin Commands
+#**Admin Commands**#
+
 !restartbot - Restart the bot.
 
 !updatebot - Check for and apply updates.
@@ -115,43 +118,48 @@ Admin Commands
 
 !logs - View or export bot logs.
 
-Configuration
-The bot's behavior can be customized via the config.json file. Key settings include:
+#**Configuration**#
 
-Command Prefix: Change the prefix for commands (e.g., !, ?).
+(The bot's behavior can be customized via the config.json file.) 
 
-Rate Limits: Adjust rate limits for chat messages and API requests.
+Key settings include:
 
-Permissions: Set permissions for commands (viewer, mod, streamer-only).
+-Command Prefix: Change the prefix for commands (e.g., !, ?).
 
-Logging: Enable or disable logging and specify log file locations.
+-Rate Limits: Adjust rate limits for chat messages and API requests.
 
-Contributing
+-Permissions: Set permissions for commands (viewer, mod, streamer-only).
+
+-Logging: Enable or disable logging and specify log file locations.
+
+#**Contributing**#
+
 We welcome contributions to PRSEK! If you'd like to contribute, please follow these steps:
 
-Fork the repository.
+-Fork the repository.
 
-Create a new branch for your feature or bugfix.
+-Create a new branch for your feature or bugfix.
 
-Commit your changes and push to your fork.
+-Commit your changes and push to your fork.
 
-Submit a pull request with a detailed description of your changes.
+-Submit a pull request with a detailed description of your changes.
 
-Support
+#**Support**#
 If you encounter any issues or have questions, please:
 
 Open an issue on GitHub.
 
 Join our Discord server for community support.
 
-License
+#License#
 PRSEK is licensed under the MIT License. See the LICENSE file for details.
 
-Acknowledgements
-TwitchIO - For the Twitch API interaction library.
+#Acknowledgements#
 
-Songify - For the music playback application.
+-TwitchIO - For the Twitch API interaction library.
 
-You! - For using PRSEK and supporting the project!
+-Songify - For the music playback application.
 
-Happy Streaming! 🎶
+-You! - For using PRSEK and supporting the project!
+
+###Happy Streaming! 🎶###
