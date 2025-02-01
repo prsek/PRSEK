@@ -1,0 +1,91 @@
+import asyncio
+from twitchio.ext import commands
+from collections import deque
+
+# Bot Configuration
+class Config:
+    TWITCH_CLIENT_ID = "YOUR_TWITCH_CLIENT_ID"
+    TWITCH_CLIENT_SECRET = "YOUR_TWITCH_CLIENT_SECRET"
+    TWITCH_BOT_TOKEN = "oauth:YOUR_BOT_OAUTH_TOKEN"
+    TWITCH_BOT_USERNAME = "YOUR_BOT_USERNAME"
+    TWITCH_CHANNEL = "YOUR_TWITCH_CHANNEL"
+    COMMAND_PREFIX = "!"
+
+# Initialize the bot
+class PRSEKBot(commands.Bot):
+    def __init__(self):
+        super().__init__(
+            token=Config.TWITCH_BOT_TOKEN,
+            prefix=Config.COMMAND_PREFIX,
+            initial_channels=[Config.TWITCH_CHANNEL]
+        )
+        self.song_queue = deque()  # Queue to store song requests
+        self.current_song = None   # Currently playing song
+
+    # Event: When the bot is ready
+    async def event_ready(self):
+        print(f"Logged in as {self.nick}")
+        print(f"Connected to channel: {Config.TWITCH_CHANNEL}")
+
+    # Command: !songrequest <song_name>
+    @commands.command(name="songrequest", aliases=["sr"])
+    async def song_request(self, ctx, *, song_name: str):
+        if not song_name:
+            await ctx.send("Please specify a song name!")
+            return
+
+        # Add the song to the queue
+        self.song_queue.append(song_name)
+        await ctx.send(f"🎵 Added '{song_name}' to the queue! Position: {len(self.song_queue)}")
+
+    # Command: !queue
+    @commands.command(name="queue", aliases=["q"])
+    async def show_queue(self, ctx):
+        if not self.song_queue:
+            await ctx.send("The queue is empty!")
+            return
+
+        queue_list = "\n".join([f"{i+1}. {song}" for i, song in enumerate(self.song_queue)])
+        await ctx.send(f"🎶 Current Queue:\n{queue_list}")
+
+    # Command: !currentsong
+    @commands.command(name="currentsong", aliases=["nowplaying"])
+    async def current_song(self, ctx):
+        if not self.current_song:
+            await ctx.send("No song is currently playing!")
+            return
+
+        await ctx.send(f"🎶 Now Playing: {self.current_song}")
+
+    # Command: !skip (Streamer/Mod only)
+    @commands.command(name="skip")
+    async def skip_song(self, ctx):
+        if not ctx.author.is_mod or ctx.author.name.lower() != Config.TWITCH_CHANNEL.lower():
+            await ctx.send("You do not have permission to skip songs!")
+            return
+
+        if not self.song_queue:
+            await ctx.send("The queue is empty!")
+            return
+
+        self.current_song = self.song_queue.popleft()
+        await ctx.send(f"⏭ Skipped to the next song: {self.current_song}")
+
+    # Command: !help
+    @commands.command(name="help")
+    async def help_command(self, ctx):
+        help_message = (
+            "🎵 PRSEK Bot Commands:\n"
+            "!songrequest <song_name> - Request a song.\n"
+            "!queue - View the current song queue.\n"
+            "!currentsong - See the currently playing song.\n"
+            "!skip - Skip the current song (Mods only).\n"
+            "!help - Show this help message."
+        )
+        await ctx.send(help_message)
+
+# Run the bot
+if __name__ == "__main__":
+    bot = PRSEKBot()
+    bot.run()
+    
