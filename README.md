@@ -23,7 +23,7 @@ Prerequisites
 
 - Twitch Developer credentials (Client ID and Client Secret)
 
-#**Steps**
+# **Steps**
 
 **Clone the Repository:**
 
