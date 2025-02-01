@@ -1,62 +1,155 @@
-//Overview:
-PRSEK is a custom-built Twitch bot designed to seamlessly interface with the "Songify" Windows application, enabling real-time song requests and playback control directly from a Twitch chat. The bot acts as a bridge between Twitch viewers and the Songify application, allowing streamers to enhance viewer engagement by letting their audience influence the music played during live streams.
+PRSEK is a custom-built Twitch bot designed to seamlessly interface with the Songify Windows application, enabling real-time song requests and playback control directly from a Twitch chat. This bot enhances viewer engagement by allowing your audience to influence the music played during your live streams.
 
-//Key Features:
+Features
+Song Requests: Viewers can request songs using chat commands.
 
-//Chat Command Integration:
+Queue Management: Maintains a queue of requested songs and plays them in order.
 
-PRSEK listens to specific chat commands issued by viewers in the Twitch channel.
+Moderation Tools: Streamers and moderators can blacklist songs, ban users, and manage the queue.
 
-Commands such as !songrequest <song_name> or !sr <song_name> allow viewers to request songs to be played via Songify.
+Real-Time Feedback: Provides instant feedback in chat for song requests, skips, and playback status.
 
-The bot parses these commands and forwards the song requests to the Songify application.
+Customizable Commands: Configure command prefixes, cooldowns, and permissions.
 
-//Songify API Interaction:
+Error Handling: Robust error handling and logging for troubleshooting.
 
-PRSEK communicates with Songify through a custom API or inter-process communication (IPC) mechanism, depending on the capabilities of the Songify application.
+Installation
+Prerequisites
+Python 3.8 or higher
 
-The bot sends song titles or identifiers to Songify, which then queues and plays the requested songs.
+A Twitch account with a registered bot account
 
-//Request Queue Management:
+The Songify Windows application installed and running
 
-PRSEK maintains a request queue to manage multiple song requests from viewers.
+Twitch Developer credentials (Client ID and Client Secret)
 
-The queue ensures that songs are played in the order they are requested, preventing conflicts and ensuring fairness.
+Steps
+Clone the Repository:
 
-Streamers can configure the maximum queue length and set cooldown periods to prevent spam.
+```bash
+Copy
+git clone https://github.com/yourusername/PRSEK.git
+cd PRSEK
+Install Dependencies:
 
-//Moderation and Permissions:
+```bash
+Copy
+pip install -r requirements.txt
+Configure the Bot:
 
-The bot includes moderation features to prevent abuse, such as blacklisting certain songs or users.
+Rename config.example.json to config.json.
 
-Streamers can set permissions to restrict song requests to subscribers, VIPs, or moderators only.
+Fill in the required fields:
 
-PRSEK can also detect and filter out inappropriate or duplicate requests.
+```json
+{
+  "twitch_client_id": "YOUR_TWITCH_CLIENT_ID",
+  "twitch_client_secret": "YOUR_TWITCH_CLIENT_SECRET",
+  "twitch_bot_username": "YOUR_BOT_USERNAME",
+  "twitch_bot_token": "YOUR_BOT_OAUTH_TOKEN",
+  "twitch_channel": "YOUR_TWITCH_CHANNEL",
+  "songify_api_key": "YOUR_SONGIFY_API_KEY",
+  "command_prefix": "!",
+  "max_queue_length": 10,
+  "request_cooldown": 30
+}
 
-//Real-Time Feedback:
+```Run the Bot:
 
-PRSEK provides real-time feedback in the Twitch chat, confirming when a song request has been successfully added to the queue.
+```bash
+Copy
+python prsek.py
+Usage
+Viewer Commands
+!songrequest <song_name> or !sr <song_name> - Request a song.
 
-The bot can also notify viewers when their requested song is about to play or if there are any issues (e.g., song not found).
+!queue or !q - View the current song queue.
 
-//Customizable Settings:
+!currentsong or !nowplaying - Display the currently playing song.
 
-Streamers can customize PRSEK's behavior through a configuration file or a web-based dashboard.
+!skip - Vote to skip the current song (if enabled).
 
-Settings include command prefixes, cooldown timers, queue limits, and integration with other Twitch features like channel points.
+!mysong - Check the position of your requested song in the queue.
 
-//Error Handling and Logging:
+!help - List available commands.
 
-PRSEK includes robust error handling to manage issues such as invalid song requests, API failures, or Songify crashes.
+Streamer/Moderator Commands
+!addsong <song_name> - Manually add a song to the queue.
 
-The bot logs all activities and errors for troubleshooting and analytics purposes.
+!skipsong - Skip the current song.
 
-//Technical Specifications:
+!clearsong <song_name> - Remove a specific song from the queue.
 
-Programming Language: PRSEK is developed in Python, leveraging libraries such as twitchio for Twitch API interaction and pywin32 or socket for interfacing with the Songify application on Windows.
+!clearqueue - Clear the entire song queue.
 
-API/Protocol: The bot uses RESTful API calls, WebSocket communication, or custom IPC protocols to interact with Songify, depending on the application's supported integration methods.
+!pause - Pause the current song.
 
-//Hosting: PRSEK can be hosted on a local machine, a dedicated server, or a cloud-based platform, ensuring low latency and high availability during live streams.
+!resume - Resume playback.
 
-//Compatibility: The bot is compatible with Windows operating systems where the Songify application is installed and running.
+!volume <level> - Adjust the volume (if supported).
+
+!blacklist <song_name> - Blacklist a song.
+
+!unblacklist <song_name> - Remove a song from the blacklist.
+
+!banuser <username> - Ban a user from making requests.
+
+!unbanuser <username> - Unban a user.
+
+!setcooldown <seconds> - Set a cooldown for song requests.
+
+!setmaxqueue <number> - Set the maximum queue length.
+
+!togglecommands - Enable or disable viewer commands.
+
+!reloadconfig - Reload the bot's configuration.
+
+Admin Commands
+!restartbot - Restart the bot.
+
+!updatebot - Check for and apply updates.
+
+!shutdownbot - Shut down the bot.
+
+!logs - View or export bot logs.
+
+Configuration
+The bot's behavior can be customized via the config.json file. Key settings include:
+
+Command Prefix: Change the prefix for commands (e.g., !, ?).
+
+Rate Limits: Adjust rate limits for chat messages and API requests.
+
+Permissions: Set permissions for commands (viewer, mod, streamer-only).
+
+Logging: Enable or disable logging and specify log file locations.
+
+Contributing
+We welcome contributions to PRSEK! If you'd like to contribute, please follow these steps:
+
+Fork the repository.
+
+Create a new branch for your feature or bugfix.
+
+Commit your changes and push to your fork.
+
+Submit a pull request with a detailed description of your changes.
+
+Support
+If you encounter any issues or have questions, please:
+
+Open an issue on GitHub.
+
+Join our Discord server for community support.
+
+License
+PRSEK is licensed under the MIT License. See the LICENSE file for details.
+
+Acknowledgements
+TwitchIO - For the Twitch API interaction library.
+
+Songify - For the music playback application.
+
+You! - For using PRSEK and supporting the project!
+
+Happy Streaming! 🎶
