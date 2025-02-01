@@ -3,23 +3,25 @@
 # **Features**
 Song Requests: Viewers can request songs using chat commands.
 
-Queue Management: Maintains a queue of requested songs and plays them in order.
+- Queue Management: Maintains a queue of requested songs and plays them in order.
 
-Moderation Tools: Streamers and moderators can blacklist songs, ban users, and manage the queue.
+- Moderation Tools: Streamers and moderators can blacklist songs, ban users, and manage the queue.
 
-Real-Time Feedback: Provides instant feedback in chat for song requests, skips, and playback status.
+- Real-Time Feedback: Provides instant feedback in chat for song requests, skips, and playback status.
 
-Customizable Commands: Configure command prefixes, cooldowns, and permissions.
+- Customizable Commands: Configure command prefixes, cooldowns, and permissions.
 
-Error Handling: Robust error handling and logging for troubleshooting.
+- Error Handling: Robust error handling and logging for troubleshooting.
 
 # **Installation**
+
 Prerequisites
-Python 3.8 or higher
 
-The Songify Windows application installed and running
+- Python 3.8 or higher
 
-Twitch Developer credentials (Client ID and Client Secret)
+- The Songify Windows application installed and running
+
+- Twitch Developer credentials (Client ID and Client Secret)
 
 #**Steps**
 
@@ -124,25 +126,25 @@ Viewer Commands
 
 Key settings include:
 
--Command Prefix: Change the prefix for commands (e.g., !, ?).
+- Command Prefix: Change the prefix for commands (e.g., !, ?).
 
--Rate Limits: Adjust rate limits for chat messages and API requests.
+- Rate Limits: Adjust rate limits for chat messages and API requests.
 
--Permissions: Set permissions for commands (viewer, mod, streamer-only).
+- Permissions: Set permissions for commands (viewer, mod, streamer-only).
 
--Logging: Enable or disable logging and specify log file locations.
+- Logging: Enable or disable logging and specify log file locations.
 
 # **Contributing**
 
 We welcome contributions to PRSEK! If you'd like to contribute, please follow these steps:
 
--Fork the repository.
+- Fork the repository.
 
--Create a new branch for your feature or bugfix.
+- Create a new branch for your feature or bugfix.
 
--Commit your changes and push to your fork.
+- Commit your changes and push to your fork.
 
--Submit a pull request with a detailed description of your changes.
+- Submit a pull request with a detailed description of your changes.
 
 #**Support**
 If you encounter any issues or have questions, please:
@@ -156,10 +158,10 @@ PRSEK is licensed under the MIT License. See the LICENSE file for details.
 
 # Acknowledgements#
 
--TwitchIO - For the Twitch API interaction library.
+- TwitchIO - For the Twitch API interaction library.
 
--Songify - For the music playback application.
+- Songify - For the music playback application.
 
--You! - For using PRSEK and supporting the project!
+- You! - For using PRSEK and supporting the project!
 
 ### Happy Streaming! 🎶
