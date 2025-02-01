@@ -62,9 +62,6 @@ Fill in the required fields:
 
 ```bash
 python prsek.py
-Usage
-Viewer Commands
-!songrequest <song_name> or !sr <song_name> - Request a song.
 ```
 # **User Commands**
 
